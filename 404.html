@@ -36,7 +36,7 @@
         const base = "/EkzariaNGOWebsite";
         const current = window.location.pathname;
 
-        // Ensure the base path is not duplicated in the URL
+        // Redirect all unmatched routes to the base path
         if (!current.startsWith(base)) {
             const path = current.replace(/^\//, ""); // Remove leading slash if present
             const search = window.location.search;
@@ -44,6 +44,12 @@
             const redirectTo = base + "/" + path + search + hash;
 
             window.location.replace(redirectTo);
+        } else {
+            // If already within the base path, ensure React handles the route
+            const path = current.replace(base, ""); // Remove base from the path
+            if (!path || path === "/404.html") {
+                window.location.replace(base + "/"); // Redirect to base if invalid
+            }
         }
     </script>
 </body>
