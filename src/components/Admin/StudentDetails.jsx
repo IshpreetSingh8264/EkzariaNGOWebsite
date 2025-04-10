@@ -81,9 +81,9 @@ const EnhancedStudentDetails = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
-      className="bg-[#FFFFFF] rounded-lg shadow p-6"
+      className="bg-[#FFFFFF] rounded-lg shadow p-4 md:p-6 w-full max-w-screen-2xl mx-auto overflow-x-auto"
     >
-      <h2 className="text-2xl font-bold text-[#212121] mb-6">Application Details</h2>
+      <h2 className="text-xl md:text-2xl font-bold text-[#212121] mb-4 md:mb-6">Application Details</h2>
       
       <StudentTable
         students={students}
