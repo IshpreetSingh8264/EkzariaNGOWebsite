@@ -168,7 +168,7 @@ const RecipientDetailView = ({ student, onClose }) => {
                   <div>
                     <h3 className="font-medium mb-1">Funding Needs:</h3>
                     <p className="text-gray-700">
-                      ${currentStudent.totalAmountNeeded - (currentStudent.fundsReceived || 0)} needed
+                      ${currentStudent.totalAmountNeeded - (currentStudent.fundsReceived || 0)}
                     </p>
                     <h3 className="font-medium mb-1 mt-3">Reason for Financial Help:</h3>
                     <p className="text-gray-700">{currentStudent.financialHelpReason}</p>
