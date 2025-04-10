@@ -12,7 +12,7 @@ const ScrollingGallery = () => {
     'https://images.unsplash.com/photo-1523240795612-9a054b0db644',
     'https://images.unsplash.com/photo-1523050854058-8df90110c9f1',
     'https://images.unsplash.com/photo-1523240795612-9a054b0db644',
-    'https://images.unsplash.com/photo-1523050854058-8df90110c9f1'
+    'https://images.unsplash.com/photo-1523050854058-8df90110c9f1',
   ].map((img, i) => ({
     id: `img1-${i}-${Date.now()}`,
     url: `${img}?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80`,
@@ -22,15 +22,19 @@ const ScrollingGallery = () => {
   const images2 = [
     'https://images.unsplash.com/photo-1522071820081-009f0129c71c',
     'https://images.unsplash.com/photo-1521791055366-0d553872125f',
-    'https://images.unsplash.com/photo-1521791136064-7986c2920216',
     'https://images.unsplash.com/photo-1523240795612-9a054b0db644',
     'https://images.unsplash.com/photo-1521791055366-0d553872125f',
-    'https://images.unsplash.com/photo-1522071820081-009f0129c71c'
+    'https://images.unsplash.com/photo-1522071820081-009f0129c71c',
+    'https://images.unsplash.com/photo-1521791136064-7986c2920216',
   ].map((img, i) => ({
     id: `img2-${i}-${Date.now()}`,
     url: `${img}?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&h=600&q=80`,
     alt: `Gallery image ${i + 1}`
   }));
+
+  // Duplicate images for seamless scrolling
+  const duplicatedImages1 = [...images1, ...images1];
+  const duplicatedImages2 = [...images2, ...images2];
 
   return (
     <div className="w-full relative overflow-hidden">
@@ -44,11 +48,11 @@ const ScrollingGallery = () => {
                   "--speed": `${scrollSpeed}ms`,
                   animation: `scroll ${scrollSpeed}ms linear infinite`,
                   animationDelay: `${-scrollSpeed * idx / 3}ms`,
-                  width: `${images1.length * 416}px` /* 400px + 16px padding */
+                  width: `${duplicatedImages1.length * 416}px` /* Adjust width for duplicated images */
                 }}
                 className="flex items-center"
               >
-                {images1.map(({ id, url, alt }) => (
+                {duplicatedImages1.map(({ id, url, alt }) => (
                   <div key={`first-${id}`} className="px-4 min-w-[400px]">
                     <LazyLoadImage
                       src={url}
@@ -72,10 +76,10 @@ const ScrollingGallery = () => {
       <style jsx="true" global="true">{`
         @keyframes scroll {
           0% { transform: translateX(0); }
-          100% { transform: translateX(calc(-${images1.length * 416}px / 3)); }
+          100% { transform: translateX(calc(-${images1.length * 416}px)); } /* Adjust for original image set */
         }
         @keyframes scrollReverse {
-          0% { transform: translateX(calc(-${images2.length * 416}px / 3)); }
+          0% { transform: translateX(calc(-${images2.length * 416}px)); } /* Adjust for original image set */
           100% { transform: translateX(0); }
         }
       `}</style>
@@ -91,11 +95,11 @@ const ScrollingGallery = () => {
                   "--speed": `${scrollSpeed}ms`,
                   animation: `scrollReverse ${scrollSpeed}ms linear infinite`,
                   animationDelay: `${-scrollSpeed * idx / 3}ms`,
-                  width: `${images2.length * 416}px`
+                  width: `${duplicatedImages2.length * 416}px` /* Adjust width for duplicated images */
                 }}
                 className="flex items-center"
               >
-                {images2.map(({ id, url, alt }) => (
+                {duplicatedImages2.map(({ id, url, alt }) => (
                   <div key={`reverse-${id}`} className="px-4 min-w-[400px]">
                     <LazyLoadImage
                       src={url}
