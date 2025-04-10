@@ -26,8 +26,7 @@ const RecipientDetailView = ({ student, onClose }) => {
         <div className="flex justify-between mb-1">
           <span className="text-xs sm:text-sm font-medium text-gray-700">
             Funding Progress: ${currentStudent.fundsReceived || 0} of ${currentStudent.totalAmountNeeded}
-          </span>
-          <span className="text-xs sm:text-sm font-medium text-gray-700">{Math.round(progress)}%</span>
+            </span>
         </div>
         {/* Progress bar */}
         <div className="w-full bg-gray-200 rounded-full h-2 sm:h-2.5">
@@ -35,6 +34,7 @@ const RecipientDetailView = ({ student, onClose }) => {
             className="bg-[#C62828] h-2.5 rounded-full"
             style={{ width: `${progress}%`, transition: 'width 0.3s ease-in-out' }}
           ></div>
+        <span className="text-xs sm:text-sm font-medium text-gray-700">{Math.round(progress)}%</span>
         </div>
       </div>
     );
@@ -167,7 +167,9 @@ const RecipientDetailView = ({ student, onClose }) => {
                   </div>
                   <div>
                     <h3 className="font-medium mb-1">Funding Needs:</h3>
-                    <p className="text-gray-700">{currentStudent.fundingNeeds}</p>
+                    <p className="text-gray-700">
+                      ${currentStudent.totalAmountNeeded - (currentStudent.fundsReceived || 0)} needed
+                    </p>
                     <h3 className="font-medium mb-1 mt-3">Reason for Financial Help:</h3>
                     <p className="text-gray-700">{currentStudent.financialHelpReason}</p>
                   </div>
