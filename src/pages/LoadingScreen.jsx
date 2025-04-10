@@ -1,19 +1,21 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import LoadingSpinner from '../components/common/LoadingSpinner';
 
 const LoadingScreen = () => {
-  const [searchParams] = useSearchParams();
-  const profile = searchParams.get('profile');
-  const navigate = useNavigate();
+  const [searchParams] = useSearchParams(); // Hook to access query parameters
+  const profile = searchParams.get('profile'); // Get the selected profile from query params
+  const navigate = useNavigate(); // React Router's navigation hook
 
   useEffect(() => {
+    // Redirect to the appropriate page after a delay
     const timer = setTimeout(() => {
       navigate(profile === 'B' ? '/recipients' : '/Home');
     }, 2000);
 
-    return () => clearTimeout(timer);
-  }, [navigate]);
+    return () => clearTimeout(timer); // Cleanup the timer on unmount
+  }, [navigate, profile]);
 
   const messages = {
     A: "Your generosity changes lives. Every donation makes a difference.",
@@ -28,12 +30,10 @@ const LoadingScreen = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-[#FDFDFD] flex flex-col items-center justify-center p-4"
     >
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-        className="w-20 h-20 border-4 border-t-[#C62828] border-r-[#EF5350] border-b-[#C62828] border-l-[#EF5350] rounded-full mb-8"
-      ></motion.div>
+      {/* Rotating Loading Spinner */}
+      <LoadingSpinner />
       
+      {/* Loading Message */}
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

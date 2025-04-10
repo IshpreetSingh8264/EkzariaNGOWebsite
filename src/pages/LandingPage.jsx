@@ -1,42 +1,31 @@
-import React, { Suspense, lazy } from 'react';
-import Navbar from '../components/LandingPage/Navbar';
+import React, { Suspense } from 'react';
+import Navbar from '../components/common/Navbar';
 import LoadingSpinner from '../components/common/LoadingSpinner';
-
-const ImageSlider = lazy(() => import('../components/LandingPage/ImageSlider'));
-const AboutSection = lazy(() => import('../components/LandingPage/AboutSection'));
-const VideoSection = lazy(() => import('../components/LandingPage/VideoSection'));
-const ScrollingGallery = lazy(() => import('../components/LandingPage/ScrollingGallery'));
-const CTASection = lazy(() => import('../components/LandingPage/CTASection'));
-const Footer = lazy(() => import('../components/LandingPage/Footer'));
+import ErrorBoundary from '../components/common/ErrorBoundary';
+import ImageSlider from '../components/LandingPage/ImageSlider';
+import AboutSection from '../components/LandingPage/AboutSection';
+import VideoSection from '../components/LandingPage/VideoSection';
+import ScrollingGallery from '../components/LandingPage/ScrollingGallery';
+import CTASection from '../components/LandingPage/CTASection';
+import Footer from '../components/LandingPage/Footer';
 
 const LandingPage = () => {
-  return ( 
+  return (
     <div className="min-h-screen bg-[#FDFDFD]">
+      {/* Navbar */}
       <Navbar />
-      
-      <Suspense fallback={<LoadingSpinner />}>
-        <ImageSlider />
-      </Suspense>
 
-      <Suspense fallback={<LoadingSpinner />}>
-        <AboutSection />
-      </Suspense>
-
-      <Suspense fallback={<LoadingSpinner />}>
-        <VideoSection />
-      </Suspense>
-
-      <Suspense fallback={<LoadingSpinner />}>
-        <ScrollingGallery />
-      </Suspense>
-
-      <Suspense fallback={<LoadingSpinner />}>
-        <CTASection />
-      </Suspense>
-
-      <Suspense fallback={<LoadingSpinner />}>
-        <Footer />
-      </Suspense>
+      {/* Main Content with ErrorBoundary and Suspense */}
+      <ErrorBoundary>
+        <Suspense fallback={<LoadingSpinner />}>
+          <ImageSlider />
+          <AboutSection />
+          <VideoSection />
+          <ScrollingGallery />
+          <CTASection />
+          <Footer />
+        </Suspense>
+      </ErrorBoundary>
     </div>
   );
 };
