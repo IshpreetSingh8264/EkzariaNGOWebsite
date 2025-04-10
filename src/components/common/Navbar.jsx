@@ -18,7 +18,7 @@ const Navbar = ({ onNewStudent }) => {
         <div className="flex items-center">
           <motion.div 
             className="text-2xl font-bold cursor-pointer text-[#C62828]"
-            onClick={() => navigate('/EkzariaNGOWebsite/')}
+            onClick={() => navigate('/')}
           >
             Ekzaria
           </motion.div>

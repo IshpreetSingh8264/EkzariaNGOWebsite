@@ -13,7 +13,7 @@ function Router() {
     <Suspense fallback={<LoadingSpinner />}>
       <Routes>
         {/* Profile Selection Page */}
-        <Route path="EkzariaNGOWebsite/" element={<ProfileSelectionPage />} />
+        <Route path="/" element={<ProfileSelectionPage />} />
 
         {/* Landing Page */}
         <Route path="/Home" element={<LandingPage />} />
