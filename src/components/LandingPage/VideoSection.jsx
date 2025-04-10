@@ -64,7 +64,7 @@ const VideoSection = () => {
             whileHover={{ scale: 1.05, backgroundColor: '#8E0000' }}
             whileTap={{ scale: 0.95 }}
             className="bg-[#C62828] text-white mt-6 px-6 py-2 rounded-md font-medium"
-            onClick={() => navigate('EkzariaNGOWebsite/recipients')}
+            onClick={() => navigate('/recipients')}
           >
             Donate Now
           </motion.button>

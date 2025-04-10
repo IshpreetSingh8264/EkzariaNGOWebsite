@@ -10,7 +10,7 @@ const RecipientDetailView = ({ student, onClose }) => {
 
   // Redirect to the recipient list if no student is available
   if (!currentStudent) {
-    navigate('EkzariaNGOWebsite/recipient');
+    navigate('/recipient');
     return null;
   }
 

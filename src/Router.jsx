@@ -16,16 +16,16 @@ function Router() {
         <Route path="EkzariaNGOWebsite/" element={<ProfileSelectionPage />} />
 
         {/* Landing Page */}
-        <Route path="EkzariaNGOWebsite/Home" element={<LandingPage />} />
+        <Route path="/Home" element={<LandingPage />} />
 
         {/* Recipients Page */}
-        <Route path="EkzariaNGOWebsite/recipients" element={<RecipientPageWithModal />} />
+        <Route path="/recipients" element={<RecipientPageWithModal />} />
 
         {/* Recipient Detail View */}
-        <Route path="EkzariaNGOWebsite/recipient/detail" element={<RecipientDetailView onClose={() => window.history.back()} />} />
+        <Route path="/recipient/detail" element={<RecipientDetailView onClose={() => window.history.back()} />} />
 
         {/* Admin Page */}
-        <Route path="EkzariaNGOWebsite/admin" element={<AdminPage />} />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </Suspense>
   );
