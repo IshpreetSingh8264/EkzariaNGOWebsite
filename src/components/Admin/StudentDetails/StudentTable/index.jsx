@@ -16,6 +16,7 @@ const StudentTable = ({
 }) => {
   return (
     <div className="w-full overflow-x-auto">
+      
       <table className="w-full divide-y divide-[#E0E0E0] min-w-[600px]">
         <thead className="bg-[#FBE9E7]">
           <tr>
