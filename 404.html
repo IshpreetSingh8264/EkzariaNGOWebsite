@@ -33,12 +33,18 @@
     <p>Redirecting you to the correct route...</p>
 
     <script>
-        const path = window.location.pathname;
-        const search = window.location.search;
-        const hash = window.location.hash;
-        const redirectTo = "/EkzariaNGOWebsite" + path + search + hash;
+        const base = "/EkzariaNGOWebsite";
+        const current = window.location.pathname;
 
-        window.location.replace(redirectTo);
+        // Only redirect if the URL doesn't already include the base
+        if (!current.startsWith(base)) {
+            const path = window.location.pathname;
+            const search = window.location.search;
+            const hash = window.location.hash;
+            const redirectTo = base + path + search + hash;
+
+            window.location.replace(redirectTo);
+        }
     </script>
 </body>
 
