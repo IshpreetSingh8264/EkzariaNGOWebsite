@@ -58,13 +58,13 @@ const RecipientDetailView = ({ student, onClose }) => {
               <div className="w-full flex flex-col sm:flex-row gap-2 items-center">
                 <button
                   onClick={onClose ? onClose : () => navigate(-1)}
-                  className="w-full sm:w-auto px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 text-sm sm:text-base"
+                  className="w-full sm:w-auto px-2 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 text-sm sm:text-base"
                 >
                   Back to List
                 </button>
                 <button
                   onClick={() => {/* Add donation handler here */}}
-                  className="w-full sm:w-auto px-6 py-2 bg-[#C62828] text-white rounded-md hover:bg-[#B71C1C] transition-colors text-sm sm:text-base"
+                  className="w-full sm:w-auto px-2 py-2 bg-[#C62828] text-white rounded-md hover:bg-[#B71C1C] transition-colors text-sm sm:text-base"
                 >
                   Donate Now
                 </button>
