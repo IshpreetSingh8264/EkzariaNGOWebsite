@@ -42,9 +42,6 @@ const RecipientDetailView = ({ student, onClose }) => {
                 <div>
                   <div className="flex items-center gap-2">
                   <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">{currentStudent.name}</h1>
-                    {/* <span className={`text-sm px-2 py-1 rounded ${currentStudent.verified ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}>
-                      {currentStudent.verified ? "Verified" : "Not Verified"}
-                    </span> */}
                     <span className={`px-2 py-1 rounded-full text-xs ${
                       currentStudent.verified ? 'bg-[#43A047] text-white' : 'bg-[#FB8C00] text-white'
                     }`}>

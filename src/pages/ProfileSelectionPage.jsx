@@ -31,7 +31,7 @@ const ProfileSelectionPage = () => {
           onClick={() => handleProfileClick('A')}
           className="cursor-pointer flex flex-col items-center"
         >
-          <div className="w-40 h-40 rounded-md bg-[#EF5350] flex items-center justify-center mb-2 overflow-hidden">
+          <div className="w-40 h-40 rounded-md bg-[#C62828] flex items-center justify-center mb-2 overflow-hidden">
             <span className="text-white text-4xl font-bold">A</span>
           </div>
           <span className="text-[#212121] text-lg">Donor Profile</span>
