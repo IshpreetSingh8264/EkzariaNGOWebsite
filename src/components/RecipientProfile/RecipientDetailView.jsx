@@ -42,9 +42,6 @@ const RecipientDetailView = ({ student, onClose }) => {
                 <div>
                   <div className="flex items-center gap-2">
                   <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">{currentStudent.name}</h1>
-                    {/* <span className={`text-sm px-2 py-1 rounded ${currentStudent.verified ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}>
-                      {currentStudent.verified ? "Verified" : "Not Verified"}
-                    </span> */}
                     <span className={`px-2 py-1 rounded-full text-xs ${
                       currentStudent.verified ? 'bg-[#43A047] text-white' : 'bg-[#FB8C00] text-white'
                     }`}>
@@ -58,13 +55,13 @@ const RecipientDetailView = ({ student, onClose }) => {
               <div className="w-full flex flex-col sm:flex-row gap-2 items-center">
                 <button
                   onClick={onClose ? onClose : () => navigate(-1)}
-                  className="w-full sm:w-auto px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 text-sm sm:text-base"
+                  className="w-full sm:w-auto px-2 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 text-sm sm:text-base"
                 >
                   Back to List
                 </button>
                 <button
                   onClick={() => {/* Add donation handler here */}}
-                  className="w-full sm:w-auto px-6 py-2 bg-[#C62828] text-white rounded-md hover:bg-[#B71C1C] transition-colors text-sm sm:text-base"
+                  className="w-full sm:w-auto px-2 py-2 bg-[#C62828] text-white rounded-md hover:bg-[#B71C1C] transition-colors text-sm sm:text-base"
                 >
                   Donate Now
                 </button>
