@@ -41,7 +41,7 @@ const RecipientPageWithModal = () => {
   };
 
   const handleViewDetail = (student) => {
-    navigate('/recipient/detail', { state: { student } });
+    navigate('EkzariaNGOWebsite/recipient/detail', { state: { student } });
   };
 
   const renderStudentCards = () => {

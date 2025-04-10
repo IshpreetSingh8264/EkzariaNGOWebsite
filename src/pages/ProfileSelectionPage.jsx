@@ -10,9 +10,9 @@ const ProfileSelectionPage = () => {
   const handleProfileClick = (profile) => {
     setSelectedProfile(profile);
     if (profile === 'A') {
-      navigate('/Home'); // Navigate to LandingPage
+      navigate('EkzariaNGOWebsite/Home'); // Navigate to LandingPage
     } else if (profile === 'B') {
-      navigate('/recipients'); // Navigate to RecipientPageWithModal
+      navigate('EkzariaNGOWebsite/recipients'); // Navigate to RecipientPageWithModal
     }
   };
 

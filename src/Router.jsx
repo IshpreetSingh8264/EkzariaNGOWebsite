@@ -13,19 +13,19 @@ function Router() {
     <Suspense fallback={<LoadingSpinner />}>
       <Routes>
         {/* Profile Selection Page */}
-        <Route path="/" element={<ProfileSelectionPage />} />
+        <Route path="EkzariaNGOWebsite/" element={<ProfileSelectionPage />} />
 
         {/* Landing Page */}
-        <Route path="/Home" element={<LandingPage />} />
+        <Route path="EkzariaNGOWebsite/Home" element={<LandingPage />} />
 
         {/* Recipients Page */}
-        <Route path="/recipients" element={<RecipientPageWithModal />} />
+        <Route path="EkzariaNGOWebsite/recipients" element={<RecipientPageWithModal />} />
 
         {/* Recipient Detail View */}
-        <Route path="/recipient/detail" element={<RecipientDetailView onClose={() => window.history.back()} />} />
+        <Route path="EkzariaNGOWebsite/recipient/detail" element={<RecipientDetailView onClose={() => window.history.back()} />} />
 
         {/* Admin Page */}
-        <Route path="/admin" element={<AdminPage />} />
+        <Route path="EkzariaNGOWebsite/admin" element={<AdminPage />} />
       </Routes>
     </Suspense>
   );

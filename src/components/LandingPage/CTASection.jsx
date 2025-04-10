@@ -22,7 +22,7 @@ const CTASection = () => {
             whileHover={{ scale: 1.05, backgroundColor: '#8E0000' }}
             whileTap={{ scale: 0.95 }}
             className="bg-white text-[#C62828] px-8 py-3 rounded-md font-bold text-lg"
-            onClick={() => navigate('/recipients')}
+            onClick={() => navigate('EkzariaNGOWebsite/recipients')}
           >
             Donate Now
           </motion.button>
