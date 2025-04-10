@@ -4,7 +4,6 @@ import LoadingSpinner from './components/common/LoadingSpinner';
 
 const LandingPage = lazy(() => import('./pages/LandingPage'));
 const ProfileSelectionPage = lazy(() => import('./pages/ProfileSelectionPage'));
-const LoadingScreen = lazy(() => import('./pages/LoadingScreen'));
 const RecipientPageWithModal = lazy(() => import('./pages/RecipientPageWithModal'));
 const RecipientDetailView = lazy(() => import('./components/RecipientProfile/RecipientDetailView'));
 const AdminPage = lazy(() => import('./pages/AdminPage'));
@@ -15,9 +14,6 @@ function Router() {
       <Routes>
         {/* Profile Selection Page */}
         <Route path="/" element={<ProfileSelectionPage />} />
-
-        {/* Loading Screen */}
-        <Route path="/loading" element={<LoadingScreen />} />
 
         {/* Landing Page */}
         <Route path="/Home" element={<LandingPage />} />

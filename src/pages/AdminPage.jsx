@@ -5,6 +5,7 @@ import AdminSidebar from '../components/Admin/AdminSidebar';
 import ErrorBoundary from '../components/common/ErrorBoundary';
 import EnhancedStudentDetails from '../components/Admin/StudentDetails';
 import EmailSection from '../components/Admin/EmailSection';
+import LoadingScreen from '../components/common/LoadingScreen'; // Import LoadingScreen component
 
 const AdminPage = () => {
   const [activeTab, setActiveTab] = React.useState('applications'); // State to track the active tab
@@ -22,24 +23,26 @@ const AdminPage = () => {
   };
 
   return (
-    <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-      className="flex h-screen bg-[#FDFDFD]"
-    >
-      {/* Sidebar for navigation */}
-      <AdminSidebar activeTab={activeTab} setActiveTab={setActiveTab} />
+    <LoadingScreen>
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        className="flex h-screen bg-[#FDFDFD]"
+      >
+        {/* Sidebar for navigation */}
+        <AdminSidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      {/* Main Content */}
-      <main className="flex-1 overflow-y-auto p-6 bg-[#FFFFFF]">
-        <ErrorBoundary>
-          <Suspense fallback={<LoadingSpinner />}>
-            {renderActiveTab()}
-          </Suspense>
-        </ErrorBoundary>
-      </main>
-    </motion.div>
+        {/* Main Content */}
+        <main className="flex-1 overflow-y-auto p-6 bg-[#FFFFFF]">
+          <ErrorBoundary>
+            <Suspense fallback={<LoadingSpinner />}>
+              {renderActiveTab()}
+            </Suspense>
+          </ErrorBoundary>
+        </main>
+      </motion.div>
+    </LoadingScreen>
   );
 };
 

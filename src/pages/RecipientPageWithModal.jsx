@@ -12,6 +12,7 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
+import LoadingScreen from '../components/common/LoadingScreen'; // Import LoadingScreen component
 
 const LoadingSpinner = lazy(() => import('../components/common/LoadingSpinner'));
 const ErrorBoundary = lazy(() => import('../components/common/ErrorBoundary'));
@@ -62,27 +63,29 @@ const RecipientPageWithModal = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 relative">
-      <Suspense fallback={<LoadingSpinner />}>
-        <ErrorBoundary>
-          <Navbar onNewStudent={handleNewStudent} />
-        </ErrorBoundary>
-      </Suspense>
-
-      <div className="container mx-auto py-4 sm:py-6 md:py-8 px-2 sm:px-4">
+    <LoadingScreen profile="B">
+      <div className="min-h-screen bg-gray-50 relative">
         <Suspense fallback={<LoadingSpinner />}>
           <ErrorBoundary>
-            <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 sm:mb-6 md:mb-8 text-center">
-              Students Needing Support
-            </h1>
+            <Navbar onNewStudent={handleNewStudent} />
           </ErrorBoundary>
         </Suspense>
 
-        <div className="flex flex-wrap justify-center gap-4 w-full max-w-screen-xl mx-auto px-4">
-          {renderStudentCards()}
+        <div className="container mx-auto py-4 sm:py-6 md:py-8 px-2 sm:px-4">
+          <Suspense fallback={<LoadingSpinner />}>
+            <ErrorBoundary>
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 sm:mb-6 md:mb-8 text-center">
+                Students Needing Support
+              </h1>
+            </ErrorBoundary>
+          </Suspense>
+
+          <div className="flex flex-wrap justify-center gap-4 w-full max-w-screen-xl mx-auto px-4">
+            {renderStudentCards()}
+          </div>
         </div>
       </div>
-    </div>
+    </LoadingScreen>
   );
 };
 

@@ -8,25 +8,28 @@ import VideoSection from '../components/LandingPage/VideoSection';
 import ScrollingGallery from '../components/LandingPage/ScrollingGallery';
 import CTASection from '../components/LandingPage/CTASection';
 import Footer from '../components/LandingPage/Footer';
+import LoadingScreen from '../components/common/LoadingScreen'; // Import LoadingScreen component
 
 const LandingPage = () => {
   return (
-    <div className="min-h-screen bg-[#FDFDFD]">
-      {/* Navbar */}
-      <Navbar />
+    <LoadingScreen profile="A">
+      <div className="min-h-screen bg-[#FDFDFD]">
+        {/* Navbar */}
+        <Navbar />
 
-      {/* Main Content with ErrorBoundary and Suspense */}
-      <ErrorBoundary>
-        <Suspense fallback={<LoadingSpinner />}>
-          <ImageSlider />
-          <AboutSection />
-          <VideoSection />
-          <ScrollingGallery />
-          <CTASection />
-          <Footer />
-        </Suspense>
-      </ErrorBoundary>
-    </div>
+        {/* Main Content with ErrorBoundary and Suspense */}
+        <ErrorBoundary>
+          <Suspense fallback={<LoadingSpinner />}>
+            <ImageSlider />
+            <AboutSection />
+            <VideoSection />
+            <ScrollingGallery />
+            <CTASection />
+            <Footer />
+          </Suspense>
+        </ErrorBoundary>
+      </div>
+    </LoadingScreen>
   );
 };
 
