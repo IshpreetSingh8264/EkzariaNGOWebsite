@@ -36,12 +36,12 @@
         const base = "/EkzariaNGOWebsite";
         const current = window.location.pathname;
 
-        // Only redirect if the URL doesn't already include the base
+        // Ensure the base path is not duplicated in the URL
         if (!current.startsWith(base)) {
-            const path = window.location.pathname;
+            const path = current.replace(/^\//, ""); // Remove leading slash if present
             const search = window.location.search;
             const hash = window.location.hash;
-            const redirectTo = base + path + search + hash;
+            const redirectTo = base + "/" + path + search + hash;
 
             window.location.replace(redirectTo);
         }
